@@ -6,13 +6,27 @@ import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "../../css/customs/hot-collections.css";
 
 const NextArrow = (props) => {
   const { className, style, onClick } = props;
   return (
     <div
-      className={className}
-      style={{ ...style, display: "block", background: "black" }}
+      className={`${className} custom-arrow`}
+      style={{
+        ...style,
+        zIndex: 1,
+        display: "flex",
+        border: "1px solid #CDCDCD",
+        backgroundColor: "white",
+        borderRadius: "50px",
+        width: "45px",
+        height: "45px",
+        justifyContent: "center",
+        alignItems: "center",
+        right: "-5px",
+        transition: "all 0.3s ease",
+      }}
       onClick={onClick}
     />
   );
@@ -22,8 +36,21 @@ const PrevArrow = (props) => {
   const { className, style, onClick } = props;
   return (
     <div
-      className={className}
-      style={{ ...style, display: "block", background: "black" }}
+      className={`${className} custom-arrow`}
+      style={{
+        ...style,
+        zIndex: 1,
+        display: "flex",
+        border: "1px solid #CDCDCD",
+        backgroundColor: "white",
+        borderRadius: "50px",
+        width: "45px",
+        height: "45px",
+        justifyContent: "center",
+        alignItems: "center",
+        left: "-4px",
+        transition: "all 0.3s ease",
+      }}
       onClick={onClick}
     />
   );
@@ -42,29 +69,29 @@ const HotCollections = () => {
   });
 
   const settings = {
-    dots: true,
+    // dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
+    initialSlide: 0,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1280,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
-          dots: true,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 767,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToScroll: 1,
+          initialSlide: 0,
         },
       },
       {
@@ -89,7 +116,7 @@ const HotCollections = () => {
           </div>
           <Slider {...settings}>
             {collections.map((collection, index) => (
-              <div className="bg-red" key={index}>
+              <div className="slider_box" key={index}>
                 <div className="nft_coll">
                   <div className="nft_wrap">
                     <Link to="/item-details">
