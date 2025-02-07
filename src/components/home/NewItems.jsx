@@ -70,6 +70,9 @@ const NewItems = () => {
   }, []);
 
   const formatTime = (totalSeconds) => {
+    if (totalSeconds <= 0) {
+      return "EXPIRED";
+    }
     const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
     const seconds = totalSeconds % 60;
@@ -164,10 +167,7 @@ const NewItems = () => {
                   : null;
                 if (timeLeftInSeconds < 0) timeLeftInSeconds = 0;
                 return (
-                  <div
-                    className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
-                    key={index}
-                  >
+                  <div className="slider_box" key={index}>
                     <div className="nft__item">
                       <div className="author_list_pp">
                         <Link
