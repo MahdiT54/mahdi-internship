@@ -106,7 +106,7 @@ const NewItems = () => {
     prevArrow: <PrevArrow />,
     responsive: [
       {
-        breakpoint: 1280,
+        breakpoint: 1200,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -150,7 +150,7 @@ const NewItems = () => {
                     className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
                     key={index}
                   >
-                    <Skeleton height={300} />
+                    <Skeleton height={325} width={275} />
                     <Skeleton height={20} width={150} />
                     <Skeleton height={20} width={100} />
                   </div>
