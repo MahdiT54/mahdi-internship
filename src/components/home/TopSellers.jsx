@@ -38,6 +38,7 @@ const TopSellers = () => {
                     <li key={index}>
                       <div className="author_list_pp">
                         <Skeleton circle={true} height={50} width={50} />
+                        <i className="fa fa-check"></i>
                       </div>
                       <div className="author_list_info">
                         <Skeleton width={100} />
@@ -58,7 +59,9 @@ const TopSellers = () => {
                         </Link>
                       </div>
                       <div className="author_list_info">
-                        <Link to="/author">{item.authorName}</Link>
+                        <Link to="/author">
+                          {item.authorName}
+                        </Link>
                         <span>{item.price} ETH</span>
                       </div>
                     </li>
