@@ -5,8 +5,13 @@ import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
 
 const ExploreItems = () => {
+  const [visibleItems, setVisibleItems] = useState(8);
   const [items, setItems] = useState([]);
   const [currentTime, setCurrentTime] = useState(new Date());
+
+  const loadMoreItems = () => {
+    setVisibleItems((prevVisibleItems) => prevVisibleItems + 4);
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -49,7 +54,7 @@ const ExploreItems = () => {
           <option value="likes_high_to_low">Most liked</option>
         </select>
       </div>
-      {items.map((item, index) => {
+      {items.slice(0, visibleItems).map((item, index) => {
         const expiryTime = item.expiryDate ? new Date(item.expiryDate) : null;
         let timeLeftInSeconds = expiryTime
           ? Math.floor((expiryTime - currentTime) / 1000)
@@ -118,11 +123,18 @@ const ExploreItems = () => {
           </div>
         );
       })}
-      <div className="col-md-12 text-center">
-        <Link to="" id="loadmore" className="btn-main lead">
-          Load more
-        </Link>
-      </div>
+      {visibleItems < items.length && (
+        <div className="text-center">
+          <Link
+            to="#"
+            id="loadmore"
+            className="btn-main lead"
+            onClick={loadMoreItems}
+          >
+            Load more
+          </Link>
+        </div>
+      )}
     </>
   );
 };
