@@ -49,13 +49,18 @@ const ExploreItems = () => {
   }, []);
 
   const fetchItems = (filter) => {
+    setLoading(true);
     const url = `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${filter}`;
     axios
       .get(url)
       .then((response) => {
         setItems(response.data);
+        setLoading(false);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
+      });
   };
 
   useEffect(() => {
@@ -82,6 +87,7 @@ const ExploreItems = () => {
               <div className="nft__item">
                 <div className="author_list_pp">
                   <Skeleton circle={true} height={50} width={50} />
+                  <i className="fa fa-check"></i>
                 </div>
                 <div className="nft__item_wrap">
                   <Skeleton height={200} />
