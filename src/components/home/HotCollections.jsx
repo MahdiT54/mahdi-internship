@@ -151,7 +151,7 @@ const HotCollections = () => {
           ) : (
             <Slider {...settings}>
               {collections.map((collection, index) => (
-                <div className="slider_box" key={index}>
+                <div className="slider_box" key={collection.id || index}>
                   <div className="nft_coll">
                     <div className="nft_wrap">
                       <Link to="/item-details">
@@ -163,7 +163,10 @@ const HotCollections = () => {
                       </Link>
                     </div>
                     <div className="nft_coll_pp">
-                      <Link to="/author">
+                      <Link
+                        key={collection.id}
+                        to={`/author/${collection.authorId}`}
+                      >
                         <img
                           className="lazy pp-coll"
                           src={collection.authorImage || AuthorImage}
