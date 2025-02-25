@@ -77,7 +77,7 @@ const Author = () => {
                       </div>
                       <div className="profile_follow de-flex">
                         <div className="de-flex-col">
-                          <Skeleton width={150} />
+                          <Skeleton width={225} height={30} />
                         </div>
                       </div>
                     </>
@@ -128,6 +128,7 @@ const Author = () => {
                   <AuthorItems
                     nftCollection={author.nftCollection}
                     authorImage={author.authorImage}
+                    loading={loading}
                   />
                 </div>
               </div>
