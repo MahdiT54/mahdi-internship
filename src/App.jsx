@@ -15,7 +15,7 @@ function App() {
         <Route path="/explore" element={<Explore />} />
         <Route path="/author/:authorId" element={<Author />} /> 
         {/* :authorId via useParams */}
-        <Route path="/item-details" element={<ItemDetails />} />
+        <Route path="/item-details/:itemId" element={<ItemDetails />} />
       </Routes>
       <Footer />
     </Router>
