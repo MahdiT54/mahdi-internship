@@ -18,9 +18,9 @@ const Home = () => {
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">
         <div id="top"></div>
-        <div data-aos="fade-in">
+        {/* <div data-aos="fade-in"> */}
           <Landing />
-        </div>
+        {/* </div> */}
         <div data-aos="fade-in">
           <LandingIntro />
         </div>
@@ -33,9 +33,9 @@ const Home = () => {
         <div data-aos="fade-in">
           <TopSellers />
         </div>
-        <div data-aos="fade-left">
+        {/* <div data-aos="fade-left"> */}
           <BrowseByCategory />
-        </div>
+        {/* </div> */}
       </div>
     </div>
   );
