@@ -2,13 +2,8 @@ import React, { useEffect } from "react";
 import NFT from "../../images/nft.png";
 import backgroundImage from "../../images/bg-shape-1.jpg";
 import { Link } from "react-router-dom";
-import AOS from "aos";
 
 const Landing = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
-  
   return (
     <section
       id="section-hero"
